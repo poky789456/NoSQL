@@ -1,4 +1,6 @@
+import redis
 import threading
+from redis import ConnectionPool
 
 pool = ConnectionPool(host='localhost', port=6379, db=0)
 
