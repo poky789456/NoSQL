@@ -8,3 +8,4 @@ elasticsearch/kibana/elas1/nodes/*/*.cfe
 elasticsearch/kibana/elas1/nodes/*/*.cfs
 elasticsearch/kibana/elas1/nodes/*/*.fnm
 elasticsearch/kibana/elas1/nodes/*/*.seg
+/elasticsearch/kibana/elas1/nodes
