@@ -1,1 +1,10 @@
 elasticsearch/kibana/elas1/nodes/
+elasticsearch/kibana/elas1/logs/
+elasticsearch/kibana/elas1/data/
+
+elasticsearch/kibana/elas1/nodes/*/_state/*
+elasticsearch/kibana/elas1/nodes/*/*.si
+elasticsearch/kibana/elas1/nodes/*/*.cfe
+elasticsearch/kibana/elas1/nodes/*/*.cfs
+elasticsearch/kibana/elas1/nodes/*/*.fnm
+elasticsearch/kibana/elas1/nodes/*/*.seg
