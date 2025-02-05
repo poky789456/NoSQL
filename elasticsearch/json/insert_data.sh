@@ -1,3 +1,5 @@
+
+##  movies.json ne fonctionne pas correctement
 curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/receipe/_bulk --data-binary "@receipe.json" &&\
 printf "\n✅ Insertion receipe index to elastic node OK ✅ "
 

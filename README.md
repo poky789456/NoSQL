@@ -163,35 +163,43 @@ Exécutez la commande suivante pour vérifier que tous les nœuds sont bien conn
 
 ```
 curl -X GET "http://0.0.0.0:9200/_cat/nodes?v"
+
+```
+----------------------------
+### Créer un index et y insérer de la data
+
+Ici, on créer un index dans Elasticsearch nommé cities.
+
+    curl -XPUT 'http://localhost:9200/cities' -H 'Content-Type: application/json' -d '
+    {
+      "settings": {
+        "number_of_shards": 2,
+        "number_of_replicas": 2
+      }
+    }'
+Ici, on insère des données.
+```docker
+curl -XPOST 'http://localhost:9200/cities/_doc' -H 'Content-Type: application/json' -d '
+{
+  "city": "London",
+  "country": "England"
+}'
+```
+### Indexation de data dans Elasticsearch
+  On utilisera [ces fichiers json](https://gist.github.com/bdallard/16aa2af027696c4ee4d0bb0db017276a) sauf le fichier movies.json qui est invalide.
+  On écrit ce script dans un fichier .sh
+  ```bash
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/receipe/_bulk --data-binary "@receipe.json" &&\
+printf "\n✅ Insertion receipe index to elastic node OK ✅ "
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/accounts/docs/_bulk --data-binary "@accounts.json"
+printf "\n✅ Insertion accounts index to elastic node OK ✅ "
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/movies/_bulk --data-binary "@movies.json"
+printf "\n✅ Insertion movies index to elastic node OK ✅ "
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/products/_bulk --data-binary "@products.json"
+printf "\n✅ Insertion products index to elastic node OK ✅ "
 ```
 
-----------
-
-## Avantages et inconvénients d'une architecture multi-nœuds
-
-### Avantages :
-
--   **Scalabilité** : Possibilité d'ajouter de nouveaux nœuds facilement.
-    
--   **Disponibilité** : Répartition de la charge et haute disponibilité.
-    
--   **Optimisation des rôles** : Spécialisation des nœuds (master, data, ingest).
-    
-
-### ❌ Inconvénients :
-
--   **Consommation de ressources** : Plus de mémoire et CPU requis.
-    
--   **Complexité accrue** : Configuration et maintenance plus avancées.
-    
-
-----------
-
-##  Conclusion
-
-Vous avez maintenant un cluster Elasticsearch fonctionnel, soit en mode **single-node** pour le développement, soit en **multi-nœuds** pour une architecture plus robuste ! 
-
-Vous pouvez commencer à utiliser Elasticsearch et l'intégrer dans vos applications. 
-
-Pour plus d'informations, consultez la documentation officielle : [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
 
