@@ -1,1 +1,1 @@
-xpack.monitoring.elasticsearch.hosts: [ "http://elasticsearch:9201" ]
+xpack.monitoring.elasticsearch.hosts: [ "http://elasticsearch:9200" ]
