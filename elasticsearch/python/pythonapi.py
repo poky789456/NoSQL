@@ -60,19 +60,14 @@ res = es.search(index="movies", body={"query":{"match_all":{}}})
 #   }
 # })
 
-es.search(index="movies", body=
+res2 = es.search(index="movies", body=
 {
   "query": {
     "bool": {
       "must": [
         {
           "match": {
-            "directors": "George"
-          }
-        },
-        {
-          "match": {
-            "title": "Star Wars"
+            "directors": "Ron"
           }
         }
       ]
@@ -80,5 +75,5 @@ es.search(index="movies", body=
   }
 })
 
-print(res)
+print(res2)
 
