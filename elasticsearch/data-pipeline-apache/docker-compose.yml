@@ -20,7 +20,7 @@ services:
     container_name: logstash
     hostname: logstash
     ports:
-      - 9601:9600
+      - 9603:9600
       - 8090:8089
     restart: always
     links:

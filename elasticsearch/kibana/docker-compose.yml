@@ -34,7 +34,7 @@ services:
       - elasticsearch
     networks:
       - esnet
-
+      
 networks:
   esnet:
     driver: bridge
